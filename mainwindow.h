@@ -1,5 +1,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
+#include "qaudiooutput.h"
+#include "qmediaplayer.h"
+#include "qprogressbar.h"
 #include "qsqldatabase.h"
 #include "ui_login.h"
 #include<QSqlDatabase>
@@ -8,8 +11,12 @@
 #include<QMessageBox>
 #include<QSqlQuery>
 #include <QMainWindow>
-
-
+#include<QMediaPlayer>
+#include<QVideoWidget>
+#include<QFileDialog>
+#include<QSlider>
+#include<QProgressBar>
+#include<QAudioOutput>
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -56,8 +63,14 @@ private slots:
 
     void on_requestbutton_clicked();
 
+
 private:
     Ui::MainWindow *ui;
+    QMediaPlayer* player;
+    QVideoWidget* vw;
+    QProgressBar* bar;
+    QSlider* slider;
+    QAudioOutput* audioOutput;
 
 };
 #endif // MAINWINDOW_H

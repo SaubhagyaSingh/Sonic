@@ -1,8 +1,10 @@
 #include "mainwindow.h"
+#include "qmediaplayer.h"
 #include "qmessagebox.h"
 #include "qpushbutton.h"
 #include "QSqlquery.h"
 #include "qsqlquerymodel.h"
+#include "qvideowidget.h"
 #include "ui_mainwindow.h"
 #include <QPixmap>//helps to add image
 
@@ -14,7 +16,16 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+
     ui->setupUi(this);
+    player= new QMediaPlayer(this);
+    vw= new QVideoWidget(this);
+    player->setVideoOutput(vw);
+    audioOutput = new QAudioOutput;
+    player->setAudioOutput(audioOutput);
+    this->centralWidget();
+
+
     //logo
     QPixmap pix("C:/Users/saubhagya singh/OneDrive/Documents/VScode/Sonic_Db/images/logo1.png"); // the object pix stores the path for the file
     ui->label_logo->setPixmap(pix.scaled(50,50,Qt::KeepAspectRatio));//the ui pointer accesses the label which calls the setpixmap func with pix as an argument.
@@ -35,11 +46,32 @@ MainWindow::~MainWindow()
 }
 void MainWindow::on_play_toggled(bool checked)
 {
+    bool songStart=true;
     if(checked){
         ui->play->setIcon(QIcon("C:/Users/saubhagya singh/OneDrive/Documents/VScode/Sonic_Db/images/pause.png"));
+        connopen();
+        QString id,curr;
+        QSqlQuery *qry3 =new QSqlQuery(db);
+        id=ui->songid->text();
+        qDebug()<<id;
+       if( qry3->exec("select song from songs where Sno='"+id+"'")){
+            qDebug()<<id;
+           while (qry3->next()){
+            curr = qry3->value( 0 ).toString();
+                qDebug()<<curr;
+                if(songStart==true){
+                player->setSource(QUrl::fromLocalFile(curr));
+                audioOutput->setVolume(80);
+                songStart=false;
+                }
+                player->play();
+        }
+       }
     }
     else{
         ui->play->setIcon(QIcon("C:/Users/saubhagya singh/OneDrive/Documents/VScode/Sonic_Db/images/play.png"));
+        player->pause();
+         connclose();
     }
 }
 
@@ -102,4 +134,5 @@ void MainWindow::on_requestbutton_clicked()
         }
     connclose();
 }
+
 

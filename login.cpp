@@ -36,11 +36,12 @@ void login::on_loginbt_clicked()
     QString username,password;
     username=ui->usernamebox->text();
     password=ui->passwordbox->text();
-
+   //qDebug()<<qry.exec("select * from loginpage where username='"+username+"'and password='"+password+"'");
 
     if(qry.exec("select * from loginpage where username='"+username+"'and password='"+password+"'"))
     {
         int count=0;
+        //qDebug()<<qry.next();
         while(qry.next()){
             count++;
         }
@@ -51,12 +52,14 @@ void login::on_loginbt_clicked()
             this->hide();
             me=new MainWindow(this);
             me->show();
-        if(count>1){
-         login::ui->status->setText("Duplicate Username and password");
         }
-        if(count<1){
+        /*if(count>1){
+         login::ui->status->setText("Duplicate Username and password");
+        }*/
+        //if(count<1)
+            else {
          login::ui->status->setText("Username and password is incorrect");
-                   }
+                 qDebug()<<count;  }
         }
     }
-}
+
