@@ -51,6 +51,7 @@ void login::on_loginbt_clicked()
             connclose();
             this->hide();
             me=new MainWindow(this);
+
             me->show();
         }
         /*if(count>1){

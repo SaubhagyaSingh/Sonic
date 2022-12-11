@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1250</width>
-    <height>900</height>
+    <width>1276</width>
+    <height>784</height>
    </rect>
   </property>
   <property name="maximumSize">
@@ -20,16 +20,17 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color:rgb(52, 52, 52);
-
-</string>
+   <string notr="true">background-image:url(C:/Users/saubhagya singh/OneDrive/Documents/VScode/Sonic_Db/images/mainbg.jpeg)</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
    <widget class="QLabel" name="label_logo">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>10</y>
+      <x>20</x>
+      <y>30</y>
       <width>81</width>
       <height>61</height>
      </rect>
@@ -169,7 +170,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">color:rgb(77, 77, 77)</string>
     </property>
     <property name="text">
      <string/>
@@ -192,22 +193,6 @@
     </property>
     <property name="text">
      <string>volume</string>
-    </property>
-   </widget>
-   <widget class="QFrame" name="frame">
-    <property name="geometry">
-     <rect>
-      <x>280</x>
-      <y>690</y>
-      <width>561</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
     </property>
    </widget>
    <widget class="QLabel" name="music_label">
@@ -246,7 +231,8 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color:rgb(190, 24, 255)</string>
+     <string notr="true">color:rgb(255, 255, 255);
+background-image:url(C:/Users/saubhagya singh/OneDrive/Documents/VScode/Sonic_Db/images/bg2.jpg)</string>
     </property>
    </widget>
    <widget class="QPushButton" name="load">
@@ -275,7 +261,8 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color:rgb(190, 24, 255)</string>
+     <string notr="true">color:rgb(255, 255, 255);
+background-image:url(C:/Users/saubhagya singh/OneDrive/Documents/VScode/Sonic_Db/images/bg2.jpg)</string>
     </property>
    </widget>
    <widget class="QPushButton" name="requestbutton">
@@ -286,6 +273,9 @@
       <width>83</width>
       <height>29</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:rgb(255, 255, 255)</string>
     </property>
     <property name="text">
      <string>Request</string>
@@ -300,6 +290,9 @@
       <height>28</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color:rgb(255, 255, 255)</string>
+    </property>
    </widget>
    <widget class="QPushButton" name="refresh">
     <property name="geometry">
@@ -310,6 +303,9 @@
       <height>29</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color:rgb(255, 255, 255)</string>
+    </property>
     <property name="text">
      <string>refresh</string>
     </property>
@@ -317,11 +313,14 @@
    <widget class="QLineEdit" name="songid">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>720</y>
-      <width>113</width>
-      <height>28</height>
+      <x>32</x>
+      <y>707</y>
+      <width>121</width>
+      <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:rgb(255, 255, 255)</string>
     </property>
     <property name="text">
      <string>Enter song id</string>
@@ -336,42 +335,14 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color:rgb(255, 255, 255)</string>
+    </property>
     <property name="text">
-     <string>Current song:</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:700; color:#ffffff;&quot;&gt;Current song:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <zorder>frame</zorder>
-   <zorder>label_logo</zorder>
-   <zorder>heading</zorder>
-   <zorder>subheading</zorder>
-   <zorder>slider</zorder>
-   <zorder>play</zorder>
-   <zorder>previous</zorder>
-   <zorder>next</zorder>
-   <zorder>like</zorder>
-   <zorder>volume</zorder>
-   <zorder>music_label</zorder>
-   <zorder>label</zorder>
-   <zorder>tableView</zorder>
-   <zorder>load</zorder>
-   <zorder>request_table</zorder>
-   <zorder>requestbutton</zorder>
-   <zorder>requested</zorder>
-   <zorder>refresh</zorder>
-   <zorder>songid</zorder>
-   <zorder>currentsong</zorder>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1250</width>
-     <height>31</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>
